@@ -10,7 +10,7 @@ This installer automates that. It pulls skills from the best community sources, 
 
 ## What's installed
 
-### Skills (10 total)
+### Skills (12 total)
 
 | Skill | Source | Description |
 |---|---|---|
@@ -24,6 +24,8 @@ This installer automates that. It pulls skills from the best community sources, 
 | `code-review-and-quality` | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | Multi-axis code review with security and performance checklists |
 | `scikit-learn` | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | ML pipelines, preprocessing, model evaluation |
 | `statsmodels` | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | Statistical models with diagnostics and inference |
+| `humanize` | [harshaneel/humanize](https://github.com/harshaneel/humanize) | Rewrites AI text with natural rhythm, varied phrasing, and personal voice matching |
+| `ai-check` | [harshaneel/humanize](https://github.com/harshaneel/humanize) | Identifies common AI-writing patterns for rewriting review |
 
 ### Superpowers plugin
 

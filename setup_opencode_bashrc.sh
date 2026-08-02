@@ -97,6 +97,7 @@ opencode-skills-check() {
     anthropic-skills
     addy-agent-skills
     scientific-agent-skills
+    humanize
   )
 
   local repository path branch local_sha remote_sha
@@ -170,6 +171,8 @@ opencode-skills-verify() {
     code-review-and-quality
     scikit-learn
     statsmodels
+    humanize
+    ai-check
   )
 
   local skill missing=0

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install a curated set of global OpenCode skills on Linux and verify them.
 # Safe to rerun: managed source repositories are updated and managed skill copies are replaced.
-# Version: 2026.08.02.3
+# Version: 2026.08.02.4
 
 set -Eeuo pipefail
 IFS=$'\n\t'
@@ -257,7 +257,8 @@ write_manifest() {
       "$SOURCES_DIR/andrej-karpathy-skills" \
       "$SOURCES_DIR/anthropic-skills" \
       "$SOURCES_DIR/addy-agent-skills" \
-      "$SOURCES_DIR/scientific-agent-skills"
+      "$SOURCES_DIR/scientific-agent-skills" \
+      "$SOURCES_DIR/humanize"
     do
       printf '%s  %s\n' "$(git -C "$repo" rev-parse HEAD)" "$repo"
     done
@@ -391,6 +392,7 @@ main() {
   local ANTHROPIC_REPO="$SOURCES_DIR/anthropic-skills"
   local ADDY_REPO="$SOURCES_DIR/addy-agent-skills"
   local KDENSE_REPO="$SOURCES_DIR/scientific-agent-skills"
+  local HUMANIZE_REPO="$SOURCES_DIR/humanize"
 
   local -a EXPECTED_SKILLS=(
     karpathy-guidelines
@@ -403,12 +405,15 @@ main() {
     code-review-and-quality
     scikit-learn
     statsmodels
+    humanize
+    ai-check
   )
 
   sync_repo 'https://github.com/multica-ai/andrej-karpathy-skills.git' "$KARPATHY_REPO"
   sync_repo 'https://github.com/anthropics/skills.git' "$ANTHROPIC_REPO"
   sync_repo 'https://github.com/addyosmani/agent-skills.git' "$ADDY_REPO"
   sync_repo 'https://github.com/K-Dense-AI/scientific-agent-skills.git' "$KDENSE_REPO"
+  sync_repo 'https://github.com/harshaneel/humanize.git' "$HUMANIZE_REPO"
 
   install_skill "$KARPATHY_REPO/skills/karpathy-guidelines" karpathy-guidelines
 
@@ -432,6 +437,9 @@ main() {
 
   install_skill "$KDENSE_REPO/skills/scikit-learn" scikit-learn
   install_skill "$KDENSE_REPO/skills/statsmodels" statsmodels
+
+  install_skill "$HUMANIZE_REPO/humanize" humanize
+  install_skill "$HUMANIZE_REPO/ai-check" ai-check
 
   install_superpowers
   write_manifest
