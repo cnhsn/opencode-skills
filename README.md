@@ -10,7 +10,7 @@ This installer automates that. It pulls skills from the best community sources, 
 
 ## What's installed
 
-### Skills (12 total)
+### Skills (14 total)
 
 | Skill | Source | Description |
 |---|---|---|
@@ -26,6 +26,8 @@ This installer automates that. It pulls skills from the best community sources, 
 | `statsmodels` | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) | Statistical models with diagnostics and inference |
 | `humanize` | [harshaneel/humanize](https://github.com/harshaneel/humanize) | Rewrites AI text with natural rhythm, varied phrasing, and personal voice matching |
 | `ai-check` | [harshaneel/humanize](https://github.com/harshaneel/humanize) | Identifies common AI-writing patterns for rewriting review |
+| `stop-slop` | [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | Removes repetitive AI-style wording, filler, and formulaic patterns from prose |
+| `task-observer` | [rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) | Observes work sessions for reusable workflows, skill gaps, and improvement opportunities |
 
 ### Superpowers plugin
 
@@ -92,6 +94,9 @@ Your interactive shells will also run a daily update check (at most once per 24 
   anthropic-skills/
   addy-agent-skills/
   scientific-agent-skills/
+  humanize/
+  stop-slop/
+  one-skill-to-rule-them-all/
 
 ~/.local/bin/
   opencode-skills-sync     # Copy of installer for easy re-runs

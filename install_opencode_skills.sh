@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install a curated set of global OpenCode skills on Linux and verify them.
 # Safe to rerun: managed source repositories are updated and managed skill copies are replaced.
-# Version: 2026.08.02.4
+# Version: 2026.08.02.5
 
 set -Eeuo pipefail
 IFS=$'\n\t'
@@ -258,7 +258,9 @@ write_manifest() {
       "$SOURCES_DIR/anthropic-skills" \
       "$SOURCES_DIR/addy-agent-skills" \
       "$SOURCES_DIR/scientific-agent-skills" \
-      "$SOURCES_DIR/humanize"
+      "$SOURCES_DIR/humanize" \
+      "$SOURCES_DIR/stop-slop" \
+      "$SOURCES_DIR/one-skill-to-rule-them-all"
     do
       printf '%s  %s\n' "$(git -C "$repo" rev-parse HEAD)" "$repo"
     done
@@ -393,6 +395,8 @@ main() {
   local ADDY_REPO="$SOURCES_DIR/addy-agent-skills"
   local KDENSE_REPO="$SOURCES_DIR/scientific-agent-skills"
   local HUMANIZE_REPO="$SOURCES_DIR/humanize"
+  local STOP_SLOP_REPO="$SOURCES_DIR/stop-slop"
+  local TASK_OBSERVER_REPO="$SOURCES_DIR/one-skill-to-rule-them-all"
 
   local -a EXPECTED_SKILLS=(
     karpathy-guidelines
@@ -407,6 +411,8 @@ main() {
     statsmodels
     humanize
     ai-check
+    stop-slop
+    task-observer
   )
 
   sync_repo 'https://github.com/multica-ai/andrej-karpathy-skills.git' "$KARPATHY_REPO"
@@ -414,6 +420,8 @@ main() {
   sync_repo 'https://github.com/addyosmani/agent-skills.git' "$ADDY_REPO"
   sync_repo 'https://github.com/K-Dense-AI/scientific-agent-skills.git' "$KDENSE_REPO"
   sync_repo 'https://github.com/harshaneel/humanize.git' "$HUMANIZE_REPO"
+  sync_repo 'https://github.com/hardikpandya/stop-slop.git' "$STOP_SLOP_REPO"
+  sync_repo 'https://github.com/rebelytics/one-skill-to-rule-them-all.git' "$TASK_OBSERVER_REPO"
 
   install_skill "$KARPATHY_REPO/skills/karpathy-guidelines" karpathy-guidelines
 
@@ -440,6 +448,9 @@ main() {
 
   install_skill "$HUMANIZE_REPO/humanize" humanize
   install_skill "$HUMANIZE_REPO/ai-check" ai-check
+
+  install_skill "$STOP_SLOP_REPO" stop-slop
+  install_skill "$TASK_OBSERVER_REPO" task-observer
 
   install_superpowers
   write_manifest

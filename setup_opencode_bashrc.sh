@@ -98,6 +98,8 @@ opencode-skills-check() {
     addy-agent-skills
     scientific-agent-skills
     humanize
+    stop-slop
+    one-skill-to-rule-them-all
   )
 
   local repository path branch local_sha remote_sha
@@ -173,6 +175,8 @@ opencode-skills-verify() {
     statsmodels
     humanize
     ai-check
+    stop-slop
+    task-observer
   )
 
   local skill missing=0
